@@ -1,1 +1,166 @@
-test
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAPT & Ethical Hacking Learning Path</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            line-height: 1.6;
+            color: #0fe0f9;
+            background: #000000;
+            padding: 20px;
+            background-image: 
+                radial-gradient(rgba(15, 224, 249, 0.1) 1px, transparent 1px),
+                radial-gradient(rgba(15, 224, 249, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(0, 12, 24, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(15, 224, 249, 0.2),
+                        inset 0 0 20px rgba(15, 224, 249, 0.1);
+            border: 1px solid rgba(15, 224, 249, 0.2);
+        }
+        h1 {
+            color: #0fe0f9;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(15, 224, 249, 0.5);
+        }
+        .intro {
+            font-size: 1.2em;
+            color: #0fe0f9;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(15, 224, 249, 0.05);
+            border-radius: 5px;
+            text-align: center;
+            border: 1px solid rgba(15, 224, 249, 0.2);
+        }
+        .roadmap {
+            margin-top: 30px;
+        }
+        .step {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(15, 224, 249, 0.05);
+            border-left: 4px solid #0fe0f9;
+            border-radius: 0 5px 5px 0;
+            transition: all 0.3s ease;
+        }
+        .step:hover {
+            background: rgba(15, 224, 249, 0.1);
+            transform: translateX(5px);
+            box-shadow: 0 0 15px rgba(15, 224, 249, 0.2);
+        }
+        .step h3 {
+            color: #0fe0f9;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        a {
+            color: #0fe0f9;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(15, 224, 249, 0.3);
+            transition: all 0.3s ease;
+            padding: 2px 4px;
+        }
+        a:hover {
+            background: rgba(15, 224, 249, 0.1);
+            border-bottom: 1px solid #0fe0f9;
+            text-shadow: 0 0 5px rgba(15, 224, 249, 0.5);
+        }
+        .warning {
+            background: rgba(249, 15, 15, 0.1);
+            color: #f90f0f;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 30px;
+            border: 1px solid rgba(249, 15, 15, 0.2);
+            text-shadow: 0 0 5px rgba(249, 15, 15, 0.3);
+        }
+        @keyframes scanline {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(15, 224, 249, 0.1);
+            animation: scanline 6s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>VAPT & Ethical Hacking Learning Path</h1>
+        
+        <div class="intro">
+            Embark on your journey to become a skilled ethical hacker and cybersecurity professional through our carefully curated learning path.
+        </div>
+
+        <div class="roadmap">
+            <div class="step">
+                <h3>Step 1: Linux Fundamentals</h3>
+                <p>Start with this comprehensive playlist that covers basic Linux commands and provides solid fundamentals in Linux and Kali Linux:</p>
+                <p><a href="https://www.youtube.com/watch?v=mKQ6qX2Gvko&list=PL4pNb_SuY0YkINTm1i_l9ceTfZp0JGFEB" target="_blank">🎥 Linux Fundamentals Playlist</a></p>
+            </div>
+
+            <div class="step">
+                <h3>Step 2: TCM Security Course</h3>
+                <p>After mastering Linux basics, proceed with Heath Adams' (The Cyber Mentor) comprehensive course that covers practical ethical hacking techniques:</p>
+                <p><a href="https://www.youtube.com/watch?v=3FNYvj2U0HM&list=PLLKT__MCUeixqHJ1TRqrHsEd6_EdEvo47" target="_blank">🎥 TCM Security Course Playlist</a></p>
+            </div>
+
+            <div class="step">
+                <h3>Step 3: Hands-on Practice</h3>
+                <p>Start practicing your skills with free rooms from:</p>
+                <ul style="margin-left: 20px;">
+                    <li><a href="https://tryhackme.com" target="_blank">TryHackMe</a></li>
+                    <li><a href="https://hackthebox.com" target="_blank">HackTheBox</a></li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>Step 4: Setting Up Your Lab</h3>
+                <p>Learn how to set up your own virtual lab environment with VirtualBox:</p>
+                <p><a href="https://www.youtube.com/watch?v=9ba0ylQYqus&list=PL4pNb_SuY0YlYu2JAf5On4SzS7xpn2o3B" target="_blank">🎥 VirtualBox Setup Tutorial</a></p>
+            </div>
+
+            <div class="step">
+                <h3>Step 5: Practice with Vulnerable Machines</h3>
+                <p>Download and practice with intentionally vulnerable machines from:</p>
+                <p><a href="https://vulnhub.com" target="_blank">VulnHub</a></p>
+            </div>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ WARNING:</strong> The knowledge and tools provided here are for educational purposes only. Always practice ethical hacking legally and responsibly.
+        </div>
+    </div>
+</body>
+</html>

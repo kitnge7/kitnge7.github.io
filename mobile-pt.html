@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile App Pentest Cheatsheet</title>
+    <style>
+        /* Previous styles remain unchanged */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #000033, #003366);
+            color: #00ffff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #00ffff33;
+        }
+
+        .logo {
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px #00ffff;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #00ffff;
+            margin-bottom: 40px;
+        }
+
+        .cheatsheet-section {
+            background: linear-gradient(135deg, #00ffff11, #00666622);
+            border: 1px solid #00ffff33;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px #00ffff22;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff55;
+        }
+
+        h3 {
+            font-size: 22px;
+            margin: 20px 0 15px;
+            color: #00ffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cheatsheet-list {
+            list-style: none;
+            margin-left: 20px;
+        }
+
+        .cheatsheet-list li {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .cheatsheet-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #00ffff;
+        }
+
+        .command-block {
+            background: #00000066;
+            border-left: 3px solid #00ffff;
+            padding: 10px;
+            margin-top: 5px;
+            font-family: monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            white-space: pre;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tag {
+            background: #00ffff22;
+            border: 1px solid #00ffff55;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 36px;
+            }
+            
+            .cheatsheet-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Sec-X : Cybersecurity
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Mobile Pentest Cheatsheet</h1>
+            <p class="subtitle">Comprehensive Guide for Mobile Application Security Testing</p>
+            <div class="tag-container">
+                <span class="tag">Android</span>
+                <span class="tag">iOS</span>
+                <span class="tag">Static Analysis</span>
+                <span class="tag">Dynamic Analysis</span>
+                <span class="tag">Network Testing</span>
+                <span class="tag">Prerequisites</span>
+                <span class="tag">Tools Setup</span>
+            </div>
+        </section>
+
+        <section class="cheatsheet-section">
+            <h2>Prerequisites & Environment Setup</h2>
+            
+            <h3>Required Tools Installation</h3>
+            <ul class="cheatsheet-list">
+                <li>Java Development Kit (JDK)
+                    <div class="command-block"># Check Java version
+java -version
+
+# Set JAVA_HOME
+export JAVA_HOME=/path/to/jdk
+export PATH=$JAVA_HOME/bin:$PATH</div>
+                </li>
+                <li>Python Environment
+                    <div class="command-block"># Install Python3
+sudo apt install python3 python3-pip
+
+# Install required packages
+pip3 install frida-tools objection</div>
+                </li>
+                <li>Android Debug Bridge (ADB)
+                    <div class="command-block"># Install ADB
+sudo apt install android-tools-adb
+
+# Check connected devices
+adb devices</div>
+                </li>
+                <li>Docker Environment
+                    <div class="command-block"># Install Docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+
+# Verify installation
+docker --version</div>
+                </li>
+            </ul>
+
+            <h3>Android Studio & SDK Tools</h3>
+            <ul class="cheatsheet-list">
+                <li>SDK Platform Tools
+                    <div class="command-block"># Install via Android Studio
+sdkmanager "platform-tools" "platforms;android-30"
+
+# Accept licenses
+sdkmanager --licenses</div>
+                </li>
+                <li>Genymotion Setup
+                    <div class="command-block"># Start Genymotion
+genymotion-player --vm-name "Android_Device"
+
+# Connect ADB
+adb connect 192.168.56.101:5555</div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="cheatsheet-section">
+            <h2>Android Application Testing</h2>
+            
+            <h3>Reverse Engineering & Static Analysis</h3>
+            <ul class="cheatsheet-list">
+                <li>APK Decompilation and Analysis
+                    <div class="command-block"># Using apktool
+apktool d app.apk -o output_dir
+
+# Using dex2jar
+d2j-dex2jar.sh app.apk
+
+# Using jadx
+jadx -d output_dir app.apk</div>
+                </li>
+                <li>Source Code Review
+                    <div class="command-block"># Search for hardcoded secrets
+grep -r "api_key\|secret\|password" ./
+
+# Find SQL queries
+grep -r "SELECT\|INSERT\|UPDATE\|DELETE" ./</div>
+                </li>
+                <li>Manifest Analysis
+                    <div class="command-block"># Extract manifest
+aapt dump xmltree app.apk AndroidManifest.xml
+
+# Check permissions
+aapt dump permissions app.apk</div>
+                </li>
+                <li>Third-party Library Assessment
+                    <div class="command-block"># Check dependencies
+gradle dependencies
+
+# Analyze native libraries
+objdump -T lib/armeabi-v7a/*.so</div>
+                </li>
+            </ul>
+
+            <h3>Dynamic & Runtime Analysis</h3>
+            <ul class="cheatsheet-list">
+                <li>Runtime Manipulation
+                    <div class="command-block"># Using Frida
+frida-ps -U | grep "app_name"
+frida -U -l script.js com.package.name
+
+# Using Objection
+objection --gadget "com.package.name" explore</div>
+                </li>
+                <li>Memory Analysis
+                    <div class="command-block"># Memory dump
+adb shell dumpsys meminfo package_name
+
+# Heap analysis
+./hprof-conv dump.hprof converted-dump.hprof
+jhat converted-dump.hprof</div>
+                </li>
+                <li>Hooking and Instrumentation
+                    <div class="command-block"># Xposed Framework
+adb shell ps | grep exposed
+
+# Frida injection
+frida-inject -n "process_name" -s script.js</div>
+                </li>
+            </ul>
+
+            <h3>Network Analysis</h3>
+            <ul class="cheatsheet-list">
+                <li>Traffic Interception
+                    <div class="command-block"># Using Burp Suite
+adb shell settings put global http_proxy 192.168.1.100:8080
+
+# Using mitmproxy
+mitmproxy -p 8080 --ssl-insecure</div>
+                </li>
+                <li>SSL/TLS Implementation
+                    <div class="command-block"># Check certificate pinning
+openssl s_client -connect host:443 -showcerts
+
+# Extract certificates
+keytool -printcert -file certificate.cer</div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="cheatsheet-section">
+            <h2>iOS Application Testing</h2>
+            
+            <h3>Filesystem Access</h3>
+            <ul class="cheatsheet-list">
+                <li>Device File System Analysis
+                    <div class="command-block"># Using ideviceinstaller
+ideviceinstaller -l
+
+# Browse filesystem
+idevicefs ls /var/mobile/Containers/Data/Application/</div>
+                </li>
+                <li>Data Storage Security
+                    <div class="command-block"># Check app data
+ls -la /var/mobile/Containers/Data/Application/APP_ID/
+
+# SQLite database analysis
+sqlite3 database.db .dump</div>
+                </li>
+                <li>Keychain Analysis
+                    <div class="command-block"># Using Keychain-dumper
+./keychain_dumper -a
+
+# Access keychain items
+security find-generic-password -a "account_name"</div>
+                </li>
+            </ul>
+
+            <h3>Binary Analysis</h3>
+            <ul class="cheatsheet-list">
+                <li>IPA Decompilation
+                    <div class="command-block"># Extract IPA
+unzip app.ipa -d extracted_ipa
+
+# Class-dump headers
+class-dump -H ./app.app -o ./headers</div>
+                </li>
+                <li>Binary Inspection
+                    <div class="command-block"># Check security features
+otool -l ./app.app/app
+
+# View strings
+strings ./app.app/app | grep -i "password"</div>
+                </li>
+            </ul>
+
+            <h3>Runtime Analysis</h3>
+            <ul class="cheatsheet-list">
+                <li>Method Swizzling
+                    <div class="command-block"># Using Cycript
+cycript -p ProcessName
+cy# [ObjectiveC.classes['ClassName'] methodName]</div>
+                </li>
+                <li>Jailbreak Detection Bypass
+                    <div class="command-block"># Using Frida
+frida-ps -Ua
+frida -U -f com.app.bundle -l jailbreak_bypass.js</div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="cheatsheet-section">
+            <h2>Security Frameworks & Tools</h2>
+            
+            <h3>Testing Distributions</h3>
+            <ul class="cheatsheet-list">
+                <li>Mobile Security Testing Frameworks
+                    <div class="command-block"># MobSF
+docker pull opensecurity/mobile-security-framework-mobsf
+docker run -it -p 8000:8000 opensecurity/mobile-security-framework-mobsf</div>
+                </li>
+                <li>Network Interception Proxies
+                    <div class="command-block"># ZAP Proxy
+./zap.sh -daemon -host 0.0.0.0 -port 8080
+
+# Charles Proxy
+charles -headless -port 8888</div>
+                </li>
+            </ul>
+
+            <h3>Security Libraries</h3>
+            <ul class="cheatsheet-list">
+                <li>Encryption Implementation
+                    <div class="command-block"># Check encryption methods
+grep -r "Cipher\|encrypt\|decrypt" ./
+
+# Verify SSL configuration
+nmap --script ssl-enum-ciphers -p 443 hostname</div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="cheatsheet-section">
+            <h2>Vulnerability Assessment</h2>
+            
+            <h3>Common Vulnerabilities</h3>
+            <ul class="cheatsheet-list">
+                <li>Insecure Data Storage
+                    <div class="command-block"># Check shared preferences
+adb shell run-as com.package.name cat /data/data/com.package.name/shared_prefs/prefs.xml
+
+# Examine SQLite databases
+adb shell run-as com.package.name ls /data/data/com.package.name/databases/</div>
+                </li>
+                <li>Weak Cryptography
+                    <div class="command-block"># Search for weak crypto implementations
+grep -r "ECB\|MD5\|SHA1" ./
+
+# Check for hardcoded keys
+strings app.apk | grep -i "key\|iv\|salt"</div>
+                </li>
+                <li>Permission Analysis
+                    <div class="command-block"># List dangerous permissions
+aapt dump permissions app.apk | grep "dangerous"
+
+# Check runtime permissions
+adb shell dumpsys package com.package.name | grep permission</div>
+                </li>
+                <li>WebView Vulnerabilities
+                    <div class="command-block"># Check for JavaScript enabled
+grep -r "setJavaScriptEnabled" ./
+
+# Inspect WebView configuration
+grep -r "WebView\|loadUrl" ./</div>
+                </li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
